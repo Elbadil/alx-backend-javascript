@@ -3,9 +3,9 @@ export default function createIteratorObject(report) {
   const employeesNames = [];
   for (const key in employees) {
     if (Object.prototype.hasOwnProperty.call(employees, key)) {
-      const allTheEmployees = employees[key];
-      for (const value of allTheEmployees) {
-        employeesNames.push(value);
+      const allDepartEmployees = employees[key];
+      for (const name of allDepartEmployees) {
+        employeesNames.push(name);
       }
     }
   }
