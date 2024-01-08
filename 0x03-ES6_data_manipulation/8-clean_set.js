@@ -9,7 +9,7 @@ export default function cleanSet(set, startString) {
   }
 
   for (const element of set) {
-    if (startString === element.substring(0, startString.length)) {
+    if (element.startsWith(startString)) {
       setString.push(element.substring(startString.length));
     }
   }
