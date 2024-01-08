@@ -7,7 +7,7 @@ export default function cleanSet(set, startString) {
 
   for (const element of set) {
     if (element && element.startsWith(startString)) {
-      setString.push(element.slice(startString.length));
+      setString.push(element.substring(startString.length));
     }
   }
   return setString.join('-');
