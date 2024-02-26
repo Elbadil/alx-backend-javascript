@@ -1,7 +1,7 @@
 const process = require('process');
 const readline = require('readline');
 
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
+console.log('Welcome to Holberton School, what is your name?');
 
 const rl = readline.createInterface({
   input: process.stdin,
