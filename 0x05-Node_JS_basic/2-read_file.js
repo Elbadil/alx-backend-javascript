@@ -13,7 +13,7 @@ function countStudents(filePath) {
     /** Deleting the last line if empty */
     lines.forEach((line) => {
       const elements = line.split(',');
-      if (elements.length < 2) {
+      if (elements.length < 4) {
         return;
       }
       studentData.push({
