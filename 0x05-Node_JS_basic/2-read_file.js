@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 function countStudents(filePath) {
-  // let counter = 0;
   fs.readFile(filePath, 'utf-8', (error, data) => {
     if (error) {
       throw new Error('Cannot load the database');
@@ -9,15 +8,14 @@ function countStudents(filePath) {
     const studentData = [];
     const fields = {};
     const lines = data.split('\n');
-    const lastElement = lines.slice(-1);
     /** Deleting the first line */
     lines.splice(0, 1);
     /** Deleting the last line if empty */
-    if (lastElement.length < 2) {
-      lines.pop();
-    }
     lines.forEach((line) => {
       const elements = line.split(',');
+      if (elements.length < 2) {
+        return;
+      }
       studentData.push({
         firstName: elements[0],
         lastName: elements[1],
