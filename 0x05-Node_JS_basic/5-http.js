@@ -50,13 +50,8 @@ const app = http.createServer(async (req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-    try {
-      const studentContent = await countStudents('database.csv');
-      res.end(`This is the list of our students\n${studentContent}`);
-    } catch (error) {
-      res.statusCode = 500;
-      res.end(error.message);
-    }
+    const studentContent = await countStudents('database.csv');
+    res.end(`This is the list of our students\n${studentContent}`);
   }
 });
 
