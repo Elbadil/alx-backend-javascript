@@ -40,9 +40,11 @@ async function countStudents(filePath) {
         returnedStr += `Number of students: ${studentData.length}\n`;
         for (const field in fields) {
           if (fields[field]) {
-            returnedStr += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`;
+            returnedStr += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
           }
         }
+        // Deleting the last newline character
+        returnedStr = returnedStr.slice(0, -1);
         resolve(returnedStr);
       }
     });
