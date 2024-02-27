@@ -10,12 +10,10 @@ export default class StudentsController {
           responseMessage += `\nNumber of students in ${field}: ${studentData[field].length}. List: ${studentData[field].join(', ')}`;
         }
       }
-      response.statusCode = 200;
-      response.send(responseMessage);
+      response.status(200).send(responseMessage);
       return response;
     } catch (error) {
-      response.statusCode = 500;
-      response.send(error.message);
+      response.status(500).send(error.message);
       return response;
     }
   }
@@ -25,16 +23,13 @@ export default class StudentsController {
       const studentData = await readDatabase(request.dbFile);
       const { major } = request.params;
       if (major === 'CS' || major === 'SWE') {
-        response.statusCode = 200;
-        response.send(`List: ${studentData[major].join(', ')}`);
+        response.status(200).send(`List: ${studentData[major].join(', ')}`);
         return response;
       }
-      response.statusCode = 500;
-      response.send('Major parameter must be CS or SWE');
+      response.status(500).send('Major parameter must be CS or SWE');
       return response;
     } catch (error) {
-      response.statusCode = 500;
-      response.send(error.message);
+      response.status(500).send(error.message);
       return response;
     }
   }
