@@ -40,7 +40,7 @@ async function countStudents(filePath) {
         returnedStr += `Number of students: ${studentData.length}\n`;
         for (const field in fields) {
           if (fields[field]) {
-            returnedStr += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
+            returnedStr += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`;
           }
         }
         resolve(returnedStr);
