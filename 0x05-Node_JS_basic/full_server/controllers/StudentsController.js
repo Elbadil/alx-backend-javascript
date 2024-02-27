@@ -12,9 +12,11 @@ export default class StudentsController {
       }
       response.statusCode = 200;
       response.send(responseMessage);
+      return response;
     } catch (error) {
       response.statusCode = 500;
       response.send(error.message);
+      return response;
     }
   }
 
@@ -25,12 +27,15 @@ export default class StudentsController {
       if (major === 'CS' || major === 'SWE') {
         response.statusCode = 200;
         response.send(`List: ${studentData[major].join(', ')}`);
+        return response;
       }
       response.statusCode = 500;
       response.send('Major parameter must be CS or SWE');
+      return response;
     } catch (error) {
       response.statusCode = 500;
       response.send(error.message);
+      return response;
     }
   }
 }

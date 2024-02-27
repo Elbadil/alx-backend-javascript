@@ -7,7 +7,7 @@ const port = 1245;
 
 const dbFile = process.argv[2];
 
-app.use('/', (req, res, next) => {
+app.use(['/students', '/students/:major'], (req, res, next) => {
   req.dbFile = dbFile;
   next();
 });
